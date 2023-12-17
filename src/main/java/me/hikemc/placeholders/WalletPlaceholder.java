@@ -1,4 +1,4 @@
-package me.hikemc.Placeholder;
+package me.hikemc.placeholders;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.hikemc.Main;

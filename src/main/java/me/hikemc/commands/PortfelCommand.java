@@ -1,5 +1,7 @@
-package me.hikemc;
+package me.hikemc.commands;
 
+import me.hikemc.data.Database;
+import me.hikemc.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

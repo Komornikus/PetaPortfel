@@ -1,4 +1,4 @@
-package me.hikemc;
+package me.hikemc.data.utils;
 
 import org.bukkit.ChatColor;
 

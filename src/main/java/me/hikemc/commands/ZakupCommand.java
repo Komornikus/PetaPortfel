@@ -1,4 +1,4 @@
-package me.hikemc;
+package me.hikemc.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

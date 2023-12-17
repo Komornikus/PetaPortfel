@@ -1,5 +1,10 @@
-package me.hikemc;
+package me.hikemc.commands;
 
+import me.hikemc.*;
+import me.hikemc.data.Database;
+import me.hikemc.data.Statystyki;
+import me.hikemc.data.utils.ChatUtils;
+import me.hikemc.listeners.MainListeners;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -71,7 +76,7 @@ public class aportfel implements CommandExecutor {
 
         double kwota = Double.parseDouble(args[2]);
 
-        Listeners listeners = new Listeners(database);
+        MainListeners mainListeners = new MainListeners(database);
 
         if (args[1].equalsIgnoreCase("add")) {
             String configaddadmin = config.getString("messages.adminAddWallet")
@@ -83,7 +88,7 @@ public class aportfel implements CommandExecutor {
                     .replace("{kwota}", String.valueOf(kwota))
                     .replace("{target}", targetPlayer.getName());
             try {
-                Statystyki statystyki = listeners.getPlayerStatystyki(targetPlayer);
+                Statystyki statystyki = mainListeners.getPlayerStatystyki(targetPlayer);
                 database.addPlayerMoney(statystyki, args[2], targetPlayer);
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', configaddadmin));
                 targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', configaddplayer));
@@ -101,7 +106,7 @@ public class aportfel implements CommandExecutor {
                     .replace("{kwota}", String.valueOf(kwota))
                     .replace("{target}", targetPlayer.getName());
             try {
-                Statystyki statystyki = listeners.getPlayerStatystyki(targetPlayer);
+                Statystyki statystyki = mainListeners.getPlayerStatystyki(targetPlayer);
                 database.removePlayerMoney(statystyki, args[2], targetPlayer);
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', configremovepadmin));
                 targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', configremoveplayer));

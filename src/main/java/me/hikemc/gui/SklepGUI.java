@@ -1,6 +1,6 @@
 package me.hikemc.gui;
 
-import me.hikemc.ChatUtils;
+import me.hikemc.data.utils.ChatUtils;
 import me.hikemc.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -24,7 +24,7 @@ public class SklepGUI{
         @SuppressWarnings({"all"})
         ItemStack item1 = new ItemStack(Material.matchMaterial(config.getString("sklep-gui.item-1.material")));
         ItemMeta item1Meta = item1.getItemMeta();
-        item1Meta.setDisplayName(ChatUtils.fix(config.getString("sklep-gui.item-1.nazwa")));
+        item1Meta.setDisplayName(ChatUtils.fix(ChatUtils.fix(config.getString("sklep-gui.item-1.nazwa"))));
         List<String> lore1 = config.getStringList("sklep-gui.item-1.opis" +
                 "§aCena: " + config.getString("sklep-gui.item-1.cena"));
         item1Meta.setLore(lore1);
@@ -32,7 +32,7 @@ public class SklepGUI{
         @SuppressWarnings({"all"})
         ItemStack item2 = new ItemStack(Material.matchMaterial(config.getString("sklep-gui.item-2.material")));
         ItemMeta item2Meta = item2.getItemMeta();
-        item2Meta.setDisplayName(ChatUtils.fix(config.getString("sklep-gui.item-2.nazwa")));
+        item2Meta.setDisplayName(ChatUtils.fix(ChatUtils.fix(config.getString("sklep-gui.item-2.nazwa"))));
         List<String> lore2 = config.getStringList("sklep-gui.item-2.opis" +
                 "§aCena: " + config.getString("sklep-gui.item-2.cena"));
         item2Meta.setLore(lore2);
@@ -40,7 +40,7 @@ public class SklepGUI{
         @SuppressWarnings({"all"})
         ItemStack item3 = new ItemStack(Material.matchMaterial(config.getString("sklep-gui.item-3.material")));
         ItemMeta item3Meta = item3.getItemMeta();
-        item3Meta.setDisplayName(ChatUtils.fix(config.getString("sklep-gui.item-3.nazwa")));
+        item3Meta.setDisplayName(ChatUtils.fix(ChatUtils.fix(config.getString("sklep-gui.item-3.nazwa"))));
         List<String> lore3 = config.getStringList("sklep-gui.item-3.opis" +
                 "§aCena: " + config.getString("sklep-gui.item-3.cena"));
         item3Meta.setLore(lore3);

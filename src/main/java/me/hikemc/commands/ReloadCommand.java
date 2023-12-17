@@ -1,5 +1,7 @@
-package me.hikemc;
+package me.hikemc.commands;
 
+import me.hikemc.data.utils.ChatUtils;
+import me.hikemc.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

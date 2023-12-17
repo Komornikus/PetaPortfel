@@ -1,7 +1,8 @@
-package me.hikemc;
+package me.hikemc.data;
 
 import java.sql.*;
 
+import me.hikemc.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;

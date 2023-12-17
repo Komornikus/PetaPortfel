@@ -41,6 +41,8 @@ sklep-gui:
       - "Nic2"
     # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
     cena: 10
+    # Komenda do wykonania jesli gracz pomyslnie kupil ten przedmiot, wykonywana przez konsole, bez "/"
+    komenda:
   item-2:
     # Displayname itemu, moze byc na kolorowo
     nazwa: ""

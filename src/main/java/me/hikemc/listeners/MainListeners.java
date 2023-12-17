@@ -1,5 +1,7 @@
-package me.hikemc;
+package me.hikemc.listeners;
 
+import me.hikemc.data.Database;
+import me.hikemc.data.Statystyki;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -7,12 +9,12 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.sql.SQLException;
 
-public class Listeners implements Listener {
+public class MainListeners implements Listener {
 
     private final Database database;
     @SuppressWarnings({"all"})
 
-    public Listeners(Database database) {
+    public MainListeners(Database database) {
         this.database = database;
     }
 

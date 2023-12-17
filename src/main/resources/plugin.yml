@@ -1,4 +1,14 @@
-name: PetaPortfel
-version: '${project.version}'
+name: PetaPorfel
+version: '1.0.3'
 main: me.hikemc.Main
 api-version: '1.16'
+authors: [xGabriell, podateK_]
+softdepend: [PlaceholderAPI]
+website: https://pl.hikemc.eu
+commands:
+  aportfel:
+      description: Komendy admina
+  portfel:
+      description: Komendy gracza
+  hikewallet-reload:
+    description: Komenda do przeładowania configu

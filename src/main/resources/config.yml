@@ -1,0 +1,100 @@
+messages:
+  noPermission: "&cNie Posiadasz uprawnień do tej komendy (hikemc.wallet.admin)"
+  adminAddWallet: "&8» &aPomyślnie dodałeś &2{kwota} zł &adla &2{target}" # Użyj: {admin} - nick administratora, {kwota} - jaka kwota, {target} - nick osoby któej admin ustawia
+  playerAddWallet: "&8» &aAdministrator &2{admin} &adał ci &2{kwota} zł" # Użyj: {admin} - nick administratora, {kwota} - jaka kwota, {target} - nick osoby któej admin ustawia
+  adminRemoveWallet: "&8» &cPomyślnie zabrałeś &4{kwota} zł &cdla &4{target}" # Użyj: {admin} - nick administratora, {kwota} - jaka kwota, {target} - nick osoby któej admin ustawia
+  playerRemoveWallet: "&8» &cAdministrator &4{admin} &czabrał ci &4{kwota} zł" # Użyj: {admin} - nick administratora, {kwota} - jaka kwota, {target} - nick osoby któej admin ustawia
+  adminSetWallet: "&8» &7Ustawiłeś &6{kwota} zł &7dla &6{target}" # Użyj: {admin} - nick administratora, {kwota} - jaka kwota, {target} - nick osoby któej admin ustawia
+  playerSetWallet: "&8» &7Administrator &e{admin} &7ustawił ci portfel na &e{kwota} zł" # Użyj: {admin} - nick administratora, {kwota} - jaka kwota, {target} - nick osoby któej admin ustawia
+  poprawneUzycie: "&7Poprawne użycie: &a/aportfel (NICK) (ADD/REMOVE/SET) (KWOTA)"
+  playerOffline: "&cPodany gracz jest offline!"
+  noPermissionReload: "&CNie posiadasz uprawnień do tego!"
+  reloadSuccess: "&aPomyślnie przeładowano konfiguracje pluginu HikeWallet"
+
+
+permissions:
+  adminPermission: "hikemc.wallet.admin"
+  portfelPermission: "hikemc.wallet"
+  reloadPermission: "hikemc.wallet.reload"
+
+
+database:
+  url: jdbc:mysql://HOST/DATABASENAME
+  username: USERNAME
+  password: PASSWROD
+# uzupełnij danymi z bazy danych
+
+sklep-gui:
+  # Title gui
+  gui-name: "&cwPLN sklep"
+  # Od 9 do 54
+  gui-size: 36
+  # Itemy w gui
+  item-1:
+    # Displayname itemu, moze byc na kolorowo
+    nazwa: "Item1"
+    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
+    material: PAPER
+    # Lore itemu
+    opis:
+      - "Nic1"
+      - "Nic2"
+    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+    cena: 10
+  item-2:
+    # Displayname itemu, moze byc na kolorowo
+    nazwa: ""
+    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
+    material:
+    # Lore itemu
+    opis:
+      - ""
+      - ""
+    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+    cena:
+  item-3:
+    # Displayname itemu, moze byc na kolorowo
+    nazwa: ""
+    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
+    material:
+    # Lore itemu
+    opis:
+      - ""
+      - ""
+    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+    cena:
+  item-4:
+    # Displayname itemu, moze byc na kolorowo
+    nazwa: ""
+    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
+    material:
+    # Lore itemu
+    opis:
+      - ""
+      - ""
+    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+    cena:
+  item-5:
+    # Displayname itemu, moze byc na kolorowo
+    nazwa: ""
+    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
+    material:
+    # Lore itemu
+    opis:
+      - ""
+      - ""
+    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+    cena:
+  item-6:
+    # Displayname itemu, moze byc na kolorowo
+    nazwa: ""
+    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
+    material:
+    # Lore itemu
+    opis:
+      - ""
+      - ""
+    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+    cena:
+
+

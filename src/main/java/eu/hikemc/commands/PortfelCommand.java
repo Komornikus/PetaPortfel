@@ -1,7 +1,7 @@
-package me.hikemc.commands;
+package eu.hikemc.commands;
 
-import me.hikemc.data.Database;
-import me.hikemc.Main;
+import eu.hikemc.data.Database;
+import eu.hikemc.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -15,14 +15,11 @@ import java.util.UUID;
 
 public class PortfelCommand implements CommandExecutor {
 
-    private final Database database;
-
+    private Database database;
 
     public PortfelCommand(Database database) {
         this.database = database;
     }
-
-    @SuppressWarnings({"all"})
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -30,7 +27,7 @@ public class PortfelCommand implements CommandExecutor {
         String perm = config.getString("permissions.portfelPermission");
 
         if (!(sender instanceof Player)) {
-            sender.sendMessage("§4Musisz być graczem, aby sprawdzić swoje statystyki.");
+            sender.sendMessage(ChatColor.RED + "Musisz być graczem, aby sprawdzić swoje statystyki.");
             return true;
         }
 
@@ -48,7 +45,7 @@ public class PortfelCommand implements CommandExecutor {
                 sender.sendMessage("§8» §7Twój stan konta wynosi: §a" + playerMoney + " zł");
             } catch (SQLException exception) {
                 exception.printStackTrace();
-                sender.sendMessage("§cWystąpił błąd podczas sprawdzania stanu konta.");
+                sender.sendMessage(ChatColor.RED + "Wystąpił błąd podczas sprawdzania stanu konta.");
             }
             return true;
         }
@@ -57,16 +54,17 @@ public class PortfelCommand implements CommandExecutor {
             Player targetPlayer = Bukkit.getPlayer(args[0]);
 
             if (targetPlayer == null) {
-                sender.sendMessage("§cGracz o podanym nicku nie został znaleziony.");
+                sender.sendMessage(ChatColor.RED + "Gracz o podanym nicku nie został znaleziony.");
                 return true;
             }
 
             try {
+                double money = database.getPlayerMoney(targetPlayer.getUniqueId().toString());
                 sender.sendMessage("§8» §7Portfel gracza: §a" + targetPlayer.getName());
                 sender.sendMessage("§8» §7Stan konta wynosi: §a" + database.getPlayerMoney(targetPlayer.getUniqueId().toString()) + "$");
             } catch (SQLException exception) {
                 exception.printStackTrace();
-                sender.sendMessage("§cWystąpił błąd podczas sprawdzania stanu konta gracza " + targetPlayer.getName());
+                sender.sendMessage(ChatColor.RED + "Wystąpił błąd podczas sprawdzania stanu konta gracza " + targetPlayer.getName());
             }
         } else {
             sender.sendMessage(ChatColor.RED + "Poprawne użycie: /portfel [NICK]");

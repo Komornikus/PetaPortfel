@@ -1,13 +1,13 @@
-package me.hikemc.data;
+package eu.hikemc.data;
 
 public class Statystyki {
 
     @SuppressWarnings({"all"})
 
-    private String UUID;
+    public String UUID;
 
     @SuppressWarnings({"all"})
-    private double players_money;
+    public double players_money;
 
 
     @SuppressWarnings({"all"})

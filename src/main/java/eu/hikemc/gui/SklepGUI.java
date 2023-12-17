@@ -1,7 +1,7 @@
-package me.hikemc.gui;
+package eu.hikemc.gui;
 
-import me.hikemc.data.utils.ChatUtils;
-import me.hikemc.Main;
+import eu.hikemc.Main;
+import eu.hikemc.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;

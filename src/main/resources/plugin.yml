@@ -1,6 +1,6 @@
 name: PetaPorfel
 version: '1.0.3'
-main: me.hikemc.Main
+main: eu.hikemc.Main
 api-version: '1.16'
 authors: [xGabriell, podateK_]
 softdepend: [PlaceholderAPI]
@@ -12,3 +12,5 @@ commands:
       description: Komendy gracza
   hikewallet-reload:
     description: Komenda do przeładowania configu
+  vplnsklep:
+    description: Komenda do otwarcia sklepu do wydawania vpln!

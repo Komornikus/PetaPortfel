@@ -1,8 +1,8 @@
-package me.hikemc.listeners;
+package eu.hikemc.listeners;
 
-import me.hikemc.data.utils.ChatUtils;
-import me.hikemc.data.Database;
-import me.hikemc.Main;
+import eu.hikemc.data.Database;
+import eu.hikemc.utils.ChatUtils;
+import eu.hikemc.Main;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -14,18 +14,19 @@ import org.bukkit.inventory.ItemStack;
 import java.sql.SQLException;
 import java.util.UUID;
 
-
 public class GuiListener implements Listener {
 
-    private Database database;
+    private final Database database;
+    private final Main plugin;
 
-    private GuiListener(Database database) {
+    public GuiListener(Main plugin, Database database) {
+        this.plugin = plugin;
         this.database = database;
     }
-    static final FileConfiguration config = Main.getInstance().getConfig();
 
     @EventHandler
     public void onGuiClick(InventoryClickEvent e) {
+        FileConfiguration config = plugin.getConfig();
         Player player = (Player) e.getWhoClicked();
         ItemStack clickedItem = e.getCurrentItem();
         UUID playerUUID = player.getUniqueId();
@@ -34,13 +35,14 @@ public class GuiListener implements Listener {
         if (clickedItem == null || clickedItem.getType() == Material.AIR) {
             return;
         }
+
         if (e.getView().getTitle().equals(ChatUtils.fix(config.getString("sklep-gui.gui-name")))) {
             e.setCancelled(true);
 
-            if(clickedItem.getItemMeta().getDisplayName().equalsIgnoreCase(ChatUtils.fix(config.getString("sklep-gui.item-1.nazwa")))) {
+            if (clickedItem.getItemMeta().getDisplayName().equalsIgnoreCase(ChatUtils.fix(config.getString("sklep-gui.item-1.nazwa")))) {
                 try {
-                    if(database.getPlayerMoney(stringedUUID) > config.getInt("sklep-gui.item-1.cena")) {
-//                        database.removePlayerMoney();
+                    if (database.getPlayerMoney(stringedUUID) > config.getInt("sklep-gui.item-1.cena")) {
+                        //wkrotce tego system
                     } else {
                         player.sendMessage(ChatUtils.fix("&cNie stac cie na ten przedmiot!"));
                     }

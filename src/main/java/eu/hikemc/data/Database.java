@@ -1,47 +1,37 @@
-package me.hikemc.data;
+package eu.hikemc.data;
 
 import java.sql.*;
 
-import me.hikemc.Main;
+import eu.hikemc.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 public class Database {
-
-
-
-
-    private Connection connection;
+    public Connection connection;
 
     @SuppressWarnings({"all"})
 
-    public Connection getConnection() throws SQLException {
-        if (connection != null && !connection.isClosed()) {
-            return connection;
-        }
-
+    public void connect() throws SQLException {
         FileConfiguration config = Main.getInstance().getConfig();
         String url = config.getString("database.url");
         String user = config.getString("database.username");
         String password = config.getString("database.password");
 
-        Connection connection = DriverManager.getConnection(url, user, password);
+        this.connection = DriverManager.getConnection(url, user, password);
+    }
 
-        this.connection = connection;
-
+    public Connection getConnection() {
         return connection;
     }
 
     @SuppressWarnings({"all"})
 
-    public void initializeDatabase() throws SQLException {
-        Connection connection = null;
-        Statement statement = null;
+    public void initializeDatabase() {
 
         try {
             connection = getConnection();
-            statement = connection.createStatement();
+           Statement statement = connection.createStatement();
 
             StringBuilder createTableQuery = new StringBuilder("CREATE TABLE IF NOT EXISTS statystyki (")
                     .append("uuid VARCHAR(36) NOT NULL,")
@@ -50,8 +40,8 @@ public class Database {
 
             statement.executeUpdate(createTableQuery.toString());
 
-        } finally {
-            closeResources(statement, connection);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -76,6 +66,18 @@ public class Database {
         return Statystyki;
     }
 
+    public Statystyki getPlayerStatystyki(Player player) throws SQLException {
+        Statystyki statystyki = checkPlayerStats(player.getUniqueId().toString());
+
+        if (statystyki == null) {
+            statystyki = new Statystyki(player.getUniqueId().toString(), 0.0);
+            dodajDoBazy(statystyki);
+            updatujBaze(statystyki);
+        }
+
+        return statystyki;
+    }
+
 
     @SuppressWarnings({"all"})
     public double getPlayerMoney(String uuid) throws SQLException {
@@ -90,9 +92,8 @@ public class Database {
                 }
             } catch (SQLException exception) {
                 exception.printStackTrace();
-            } catch (NumberFormatException exception) {
-                exception.printStackTrace();
-            } try {
+            }
+            try {
                 return money;
             } catch (NumberFormatException exceptions) {
                 exceptions.printStackTrace();

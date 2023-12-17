@@ -1,7 +1,7 @@
-package me.hikemc.placeholders;
+package eu.hikemc.placeholders;
 
+import eu.hikemc.Main;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import me.hikemc.Main;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,12 +17,12 @@ public class WalletPlaceholder extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getIdentifier() {
-        return "hikewallet";
+        return "petaportfel";
     }
 
     @Override
     public @NotNull String getAuthor() {
-        return "xGabriel";
+        return "xGabriel, podateK_";
     }
 
     @Override

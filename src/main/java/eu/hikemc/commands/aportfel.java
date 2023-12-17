@@ -1,10 +1,10 @@
-package me.hikemc.commands;
+package eu.hikemc.commands;
 
-import me.hikemc.*;
-import me.hikemc.data.Database;
-import me.hikemc.data.Statystyki;
-import me.hikemc.data.utils.ChatUtils;
-import me.hikemc.listeners.MainListeners;
+import eu.hikemc.Main;
+import eu.hikemc.data.Database;
+import eu.hikemc.data.Statystyki;
+import eu.hikemc.utils.ChatUtils;
+import eu.hikemc.listeners.MainListeners;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -18,7 +18,7 @@ import java.sql.SQLException;
 
 public class aportfel implements CommandExecutor {
 
-    private Database database;
+    private final Database database;
 
     public aportfel(Database database) {
         this.database = database;
@@ -76,64 +76,50 @@ public class aportfel implements CommandExecutor {
 
         double kwota = Double.parseDouble(args[2]);
 
-        MainListeners mainListeners = new MainListeners(database);
-
-        if (args[1].equalsIgnoreCase("add")) {
-            String configaddadmin = config.getString("messages.adminAddWallet")
-                    .replace("{admin}", sender.getName())
-                    .replace("{kwota}", String.valueOf(kwota))
-                    .replace("{target}", targetPlayer.getName());
-            String configaddplayer = config.getString("messages.playerAddWallet")
-                    .replace("{admin}", sender.getName())
-                    .replace("{kwota}", String.valueOf(kwota))
-                    .replace("{target}", targetPlayer.getName());
-            try {
-                Statystyki statystyki = mainListeners.getPlayerStatystyki(targetPlayer);
+        try {
+            Statystyki statystyki = database.getPlayerStatystyki(player);
+            if (args[1].equalsIgnoreCase("add")) {
+                String configaddadmin = config.getString("messages.adminAddWallet")
+                        .replace("{admin}", sender.getName())
+                        .replace("{kwota}", String.valueOf(kwota))
+                        .replace("{target}", targetPlayer.getName());
+                String configaddplayer = config.getString("messages.playerAddWallet")
+                        .replace("{admin}", sender.getName())
+                        .replace("{kwota}", String.valueOf(kwota))
+                        .replace("{target}", targetPlayer.getName());
                 database.addPlayerMoney(statystyki, args[2], targetPlayer);
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', configaddadmin));
                 targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', configaddplayer));
-            } catch (SQLException exception) {
-                sender.sendMessage(ChatUtils.fix("&cNie udało się zmienić stanu konta gracza " + targetPlayer.getName()));
-                exception.printStackTrace();
-            }
-        } else if (args[1].equalsIgnoreCase("remove")) {
-            String configremovepadmin = config.getString("messages.adminRemoveWallet")
-                    .replace("{admin}", sender.getName())
-                    .replace("{kwota}", String.valueOf(kwota))
-                    .replace("{target}", targetPlayer.getName());
-            String configremoveplayer = config.getString("messages.playerRemoveWallet")
-                    .replace("{admin}", sender.getName())
-                    .replace("{kwota}", String.valueOf(kwota))
-                    .replace("{target}", targetPlayer.getName());
-            try {
-                Statystyki statystyki = mainListeners.getPlayerStatystyki(targetPlayer);
+            } else if (args[1].equalsIgnoreCase("remove")) {
+                String configremovepadmin = config.getString("messages.adminRemoveWallet")
+                        .replace("{admin}", sender.getName())
+                        .replace("{kwota}", String.valueOf(kwota))
+                        .replace("{target}", targetPlayer.getName());
+                String configremoveplayer = config.getString("messages.playerRemoveWallet")
+                        .replace("{admin}", sender.getName())
+                        .replace("{kwota}", String.valueOf(kwota))
+                        .replace("{target}", targetPlayer.getName());
                 database.removePlayerMoney(statystyki, args[2], targetPlayer);
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', configremovepadmin));
                 targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', configremoveplayer));
-            } catch (SQLException exceptions) {
-                sender.sendMessage(ChatUtils.fix("&cNie udało się zmienić stanu konta gracza " + targetPlayer.getName()));
-                exceptions.printStackTrace();
-            }
-        } else if (args[1].equalsIgnoreCase("set")) {
-            String configsetpadmin = config.getString("messages.adminSetWallet")
-                    .replace("{admin}", sender.getName())
-                    .replace("{kwota}", String.valueOf(kwota))
-                    .replace("{target}", targetPlayer.getName());
-            String configsetplayer = config.getString("messages.playerSetWallet")
-                    .replace("{admin}", sender.getName())
-                    .replace("{kwota}", String.valueOf(kwota))
-                    .replace("{target}", targetPlayer.getName());
-
-            try {
+            } else if (args[1].equalsIgnoreCase("set")) {
+                String configsetpadmin = config.getString("messages.adminSetWallet")
+                        .replace("{admin}", sender.getName())
+                        .replace("{kwota}", String.valueOf(kwota))
+                        .replace("{target}", targetPlayer.getName());
+                String configsetplayer = config.getString("messages.playerSetWallet")
+                        .replace("{admin}", sender.getName())
+                        .replace("{kwota}", String.valueOf(kwota))
+                        .replace("{target}", targetPlayer.getName());
                 database.setPlayerMoney(args[2], targetPlayer);
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', configsetpadmin));
                 targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', configsetplayer));
-            } catch (SQLException exception) {
-                sender.sendMessage(ChatColor.RED + "Nie udało się ustawić nowego stanu konta gracza!");
-                exception.printStackTrace();
+            } else {
+                sender.sendMessage(ChatColor.RED + "Niepoprawna akcja. Użyj: add, remove lub set.");
             }
-        } else {
-            sender.sendMessage(ChatColor.RED + "Niepoprawna akcja. Użyj: add, remove lub set.");
+        } catch (SQLException exception) {
+            sender.sendMessage(ChatUtils.fix("&cWystąpił błąd podczas przetwarzania komendy."));
+            exception.printStackTrace();
         }
 
         return true;

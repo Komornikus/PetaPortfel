@@ -1,0 +1,4 @@
+name: PetaPortfel
+version: '${project.version}'
+main: me.hikemc.Main
+api-version: '1.16'

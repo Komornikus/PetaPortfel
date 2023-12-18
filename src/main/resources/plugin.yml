@@ -1,5 +1,5 @@
 name: PetaPorfel
-version: '1.0.3'
+version: '1.0.4'
 main: eu.hikemc.Main
 api-version: '1.16'
 authors: [xGabriell, podateK_]
@@ -10,7 +10,7 @@ commands:
       description: Komendy admina
   portfel:
       description: Komendy gracza
-  hikewallet-reload:
+  petaportfel-reload:
     description: Komenda do przeładowania configu
-  vplnsklep:
-    description: Komenda do otwarcia sklepu do wydawania vpln!
+  wplnsklep:
+    description: Komenda do otwarcia sklepu do wydawania wpln!

@@ -3,6 +3,7 @@ package eu.hikemc.listeners;
 import eu.hikemc.data.Database;
 import eu.hikemc.utils.ChatUtils;
 import eu.hikemc.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -42,7 +43,7 @@ public class GuiListener implements Listener {
             if (clickedItem.getItemMeta().getDisplayName().equalsIgnoreCase(ChatUtils.fix(config.getString("sklep-gui.item-1.nazwa")))) {
                 try {
                     if (database.getPlayerMoney(stringedUUID) > config.getInt("sklep-gui.item-1.cena")) {
-                        //wkrotce tego system
+                        Bukkit.broadcastMessage(ChatUtils.fix("&cDziala! Gracz ma wystarczajaco pieniedzy"));
                     } else {
                         player.sendMessage(ChatUtils.fix("&cNie stac cie na ten przedmiot!"));
                     }

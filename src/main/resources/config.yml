@@ -30,73 +30,65 @@ sklep-gui:
   # Od 9 do 54
   gui-size: 36
   # Itemy w gui
+
+
+  # Nazwa - Nazwa itemu w gui (Tekst, nazwa itemu)
+  # Material - Item np. PAPER (String material, Material jako tekst, "spacje" zastepuj znakiem "_", wszystkie litery muszą być duże, z capslokiem)
+  # Opis - Lore itemu, opis jaki masz pod itemem (Tekst, opis przedmiotu, napis z cena pojawia sie automatycznie), przyklad jak to wyglada:
+  # Twoj tekst 1
+  # Twoj tekst 2
+  # Cena: 10 wPLN
+
+
+  # Cena - Cena itemu za wPLN (Wirtualne pieniadze) (Cyfra, np. 2.0)
+  # Slot - Slot w gui (Cyfra)
   item-1:
-    # Displayname itemu, moze byc na kolorowo
-    nazwa: "Item1"
-    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
-    material: PAPER
-    # Lore itemu
+    nazwa: ""
+    material:
     opis:
-      - "Nic1"
-      - "Nic2"
-    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
-    cena: 10
-    # Komenda do wykonania jesli gracz pomyslnie kupil ten przedmiot, wykonywana przez konsole, bez "/"
-    komenda:
+      linia1:
+      linia2:
+    cena:
+    slot:
   item-2:
-    # Displayname itemu, moze byc na kolorowo
     nazwa: ""
-    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
     material:
-    # Lore itemu
     opis:
-      - ""
-      - ""
-    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+      linia1:
+      linia2:
     cena:
+    slot:
   item-3:
-    # Displayname itemu, moze byc na kolorowo
     nazwa: ""
-    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
     material:
-    # Lore itemu
     opis:
-      - ""
-      - ""
-    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+      linia1:
+      linia2:
     cena:
+    slot:
   item-4:
-    # Displayname itemu, moze byc na kolorowo
     nazwa: ""
-    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
     material:
-    # Lore itemu
     opis:
-      - ""
-      - ""
-    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+      linia1:
+      linia2:
     cena:
+    slot:
   item-5:
-    # Displayname itemu, moze byc na kolorowo
     nazwa: ""
-    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
     material:
-    # Lore itemu
     opis:
-      - ""
-      - ""
-    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+      linia1:
+      linia2:
     cena:
+    slot:
   item-6:
-    # Displayname itemu, moze byc na kolorowo
     nazwa: ""
-    # Material, czyli jaki to ma byc item, z duzej litery wszystko musi tu byc
     material:
-    # Lore itemu
     opis:
-      - ""
-      - ""
-    # Cena itemu np. 10.0, musi byc tam jedna liczba po przecinku
+      linia1:
+      linia2:
     cena:
+    slot:
 
 

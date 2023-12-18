@@ -20,12 +20,8 @@ import java.sql.*;
 
 public final class Main extends JavaPlugin {
 
-
-
     public static Main instance;
 
-
-    @SuppressWarnings({"all"})
     private Database database;
 
     private Statystyki statystyki;
@@ -47,7 +43,7 @@ public final class Main extends JavaPlugin {
         try {
             this.database.connect();
         } catch (SQLException e) {
-            System.out.println("Bład z połaczeniem bazy danych");
+            System.out.println("Błąd z połączeniem z bazą danych");
             e.printStackTrace();
         }
         finally {
@@ -56,30 +52,16 @@ public final class Main extends JavaPlugin {
 
         this.database.initializeDatabase();
 
-        //Registering
-
+        // Registering
         getServer().getPluginManager().registerEvents(new MainListeners(database), this);
         getServer().getPluginManager().registerEvents(new GuiListener(this, database), this);
         getCommand("portfel").setExecutor(new PortfelCommand(database));
         getCommand("aportfel").setExecutor(new aportfel(database));
-        getCommand("hikewallet-reload").setExecutor(new ReloadCommand(this));
-        getCommand("vplnsklep").setExecutor(new wPLNSklep());
+        getCommand("petaportfel-reload").setExecutor(new ReloadCommand(this));
+        getCommand("wplnsklep").setExecutor(new wPLNSklep());
 
-        //Tab completery
+        // Tab completers
         getCommand("aportfel").setTabCompleter(new tabCompleterA());
-
-        // Config
-
-
-
-
-//        System.out.println("---------------------------");
-//        System.out.println("");
-//        System.out.println("Plugin HikeWallet został pomyślnie uruchomiony");
-//        System.out.println("Autor: xGabriell, podateK_");
-//        System.out.println("Wersja pluginu: 1.0");
-//        System.out.println("");
-//        System.out.println("---------------------------");
 
         // Registering placeholders
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
@@ -87,12 +69,9 @@ public final class Main extends JavaPlugin {
         }
     }
 
-
-    @SuppressWarnings({"all"})
     @Override
     public void onDisable() {
-
-        // Turing off message
+        // Turning off message
         System.out.println("---------------------------");
         System.out.println("");
         System.out.println("Plugin HikeWallet został pomyślnie wyłączony");
@@ -102,7 +81,6 @@ public final class Main extends JavaPlugin {
         System.out.println("---------------------------");
     }
 
-
     public static Main getInstance() {
         return instance;
     }
@@ -111,6 +89,7 @@ public final class Main extends JavaPlugin {
     public @NotNull FileConfiguration getConfig() {
         return super.getConfig();
     }
+
     public Database getDatabase() {
         return database;
     }

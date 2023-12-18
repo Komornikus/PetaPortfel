@@ -71,5 +71,15 @@ public class SklepGUI{
         item6.setItemMeta(item6Meta);
 
 
+        SklepGUI.setItem(11, item1);
+        SklepGUI.setItem(13, item2);
+        SklepGUI.setItem(15, item3);
+        SklepGUI.setItem(29, item4);
+        SklepGUI.setItem(32, item5);
+        SklepGUI.setItem(34, item6);
+
+        player.openInventory(SklepGUI);
+
+
     }
 }

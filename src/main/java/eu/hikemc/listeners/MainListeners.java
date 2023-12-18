@@ -11,29 +11,38 @@ import java.sql.SQLException;
 
 public class MainListeners implements Listener {
 
-    public Database database;
+    private final Database database;
 
     public MainListeners(Database database) {
         this.database = database;
     }
 
+    public Statystyki getPlayerStatystyki(Player player) throws SQLException {
+        Statystyki Statystyki = database.checkPlayerStats(player.getUniqueId().toString());
+
+        if(Statystyki == null) {
+            // Utwórz nowy obiekt Statystyki, jeśli nie istnieje
+            Statystyki = new Statystyki(player.getUniqueId().toString(), 0.0);
+            database.dodajDoBazy(Statystyki);
+            database.updatujBaze(Statystyki);
+        }
+
+        return Statystyki;
+    }
+
+
+    @SuppressWarnings({"all"})
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
+        Player p = e.getPlayer();
+
         try {
-            if (database != null) {
-                Player player = e.getPlayer();
-                Statystyki statystyki = database.getPlayerStatystyki(player);
-                database.updatujBaze(statystyki);
-            } else if(database == null) {
-                System.out.println("Błąd: Obiekt bazy danych jest null!");
-            }
+            Statystyki Statystyki = getPlayerStatystyki(p);
+            database.updatujBaze(Statystyki);
         } catch (SQLException exception) {
             exception.printStackTrace();
             System.out.println("Nie można dodać nowego gracza do bazy danych!");
         }
-
-
-
-
     }
 }

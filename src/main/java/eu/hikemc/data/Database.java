@@ -10,8 +10,6 @@ import org.bukkit.entity.Player;
 public class Database {
     public Connection connection;
 
-    @SuppressWarnings({"all"})
-
     public void connect() throws SQLException {
         FileConfiguration config = Main.getInstance().getConfig();
         String url = config.getString("database.url");
@@ -25,13 +23,11 @@ public class Database {
         return connection;
     }
 
-    @SuppressWarnings({"all"})
-
     public void initializeDatabase() {
 
         try {
-            connection = getConnection();
-           Statement statement = connection.createStatement();
+            Connection connection = getConnection();
+            Statement statement = connection.createStatement();
 
             StringBuilder createTableQuery = new StringBuilder("CREATE TABLE IF NOT EXISTS statystyki (")
                     .append("uuid VARCHAR(36) NOT NULL,")
@@ -45,8 +41,6 @@ public class Database {
         }
     }
 
-
-    @SuppressWarnings({"all"})
     public Statystyki checkPlayerStats(String uuid) throws SQLException {
         Statystyki Statystyki = null;
 
@@ -78,33 +72,24 @@ public class Database {
         return statystyki;
     }
 
-
-    @SuppressWarnings({"all"})
     public double getPlayerMoney(String uuid) throws SQLException {
-
         try (PreparedStatement statement = getConnection().prepareStatement("SELECT money FROM statystyki WHERE uuid = ?")) {
             statement.setString(1, uuid);
-           double money = 0.0;
+            double money = 0.0;
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                  money = resultSet.getDouble("money");
+                    money = resultSet.getDouble("money");
                 }
             } catch (SQLException exception) {
                 exception.printStackTrace();
-            }
-            try {
-                return money;
-            } catch (NumberFormatException exceptions) {
-                exceptions.printStackTrace();
+            } catch (NumberFormatException exception) {
+                exception.printStackTrace();
             }
 
             return money;
         }
     }
-
-
-    @SuppressWarnings({"all"})
 
     public void dodajDoBazy(Statystyki Statystyki) throws SQLException {
         PreparedStatement statement = getConnection().prepareStatement("INSERT INTO statystyki(uuid, money) VALUES (?, ?)");
@@ -115,8 +100,6 @@ public class Database {
         statement.close();
     }
 
-    @SuppressWarnings({"all"})
-
     public void updatujBaze(Statystyki Statystyki) throws SQLException {
         PreparedStatement statement = getConnection().prepareStatement("UPDATE statystyki SET money = ? WHERE uuid = ?");
         statement.setDouble(1, Statystyki.getPlayers_money());
@@ -126,8 +109,6 @@ public class Database {
         statement.close();
     }
 
-
-    @SuppressWarnings({"all"})
     public void setPlayerMoney(String newBalance, Player player) throws SQLException {
         PreparedStatement statement = getConnection().prepareStatement("UPDATE statystyki SET money = ? WHERE uuid = ?");
 
@@ -146,7 +127,6 @@ public class Database {
         }
     }
 
-    @SuppressWarnings({"all"})
     public void addPlayerMoney(Statystyki statystyki, String newBalance, Player player) throws SQLException {
         PreparedStatement statement = getConnection().prepareStatement("UPDATE statystyki SET money = money + ? WHERE uuid = ?");
 
@@ -165,7 +145,6 @@ public class Database {
         }
     }
 
-    @SuppressWarnings({"all"})
     public void removePlayerMoney(Statystyki statystyki, String newBalance, Player player) throws SQLException {
         PreparedStatement statement = getConnection().prepareStatement("UPDATE statystyki SET money = money - ? WHERE uuid = ?");
 
@@ -183,8 +162,6 @@ public class Database {
             statement.close();
         }
     }
-
-    @SuppressWarnings({"all"})
 
     private void closeResources(Statement statement, Connection connection) {
         try {

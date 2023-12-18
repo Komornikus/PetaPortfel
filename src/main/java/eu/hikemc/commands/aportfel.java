@@ -99,7 +99,8 @@ public class aportfel implements CommandExecutor {
                         .replace("{admin}", sender.getName())
                         .replace("{kwota}", String.valueOf(kwota))
                         .replace("{target}", targetPlayer.getName());
-                database.removePlayerMoney(statystyki, args[2], targetPlayer);
+                double newBal = Double.parseDouble(args[2]);
+                database.removePlayerMoney(statystyki, newBal, targetPlayer);
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', configremovepadmin));
                 targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', configremoveplayer));
             } else if (args[1].equalsIgnoreCase("set")) {

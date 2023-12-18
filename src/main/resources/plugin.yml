@@ -2,7 +2,7 @@ name: PetaPorfel
 version: '1.0.4'
 main: eu.hikemc.Main
 api-version: '1.16'
-authors: [xGabriell, podateK_]
+author: podateK_
 softdepend: [PlaceholderAPI]
 website: https://pl.hikemc.eu
 commands:

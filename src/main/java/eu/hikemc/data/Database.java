@@ -145,12 +145,11 @@ public class Database {
         }
     }
 
-    public void removePlayerMoney(Statystyki statystyki, String newBalance, Player player) throws SQLException {
+    public void removePlayerMoney(Statystyki statystyki, double newBalance, Player player) throws SQLException {
         PreparedStatement statement = getConnection().prepareStatement("UPDATE statystyki SET money = money - ? WHERE uuid = ?");
 
         try {
-            double removalBalance = Double.parseDouble(newBalance);
-            statement.setDouble(1, removalBalance);
+            statement.setDouble(1, newBalance);
             statement.setString(2, statystyki.getPlayerUUID());
 
             int rowsUpdated = statement.executeUpdate();

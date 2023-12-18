@@ -1,6 +1,7 @@
 package eu.hikemc.listeners;
 
 import eu.hikemc.data.Database;
+import eu.hikemc.data.Statystyki;
 import eu.hikemc.utils.ChatUtils;
 import eu.hikemc.Main;
 import org.bukkit.Bukkit;
@@ -32,18 +33,77 @@ public class GuiListener implements Listener {
         ItemStack clickedItem = e.getCurrentItem();
         UUID playerUUID = player.getUniqueId();
         String stringedUUID = playerUUID.toString();
-
         if (clickedItem == null || clickedItem.getType() == Material.AIR) {
             return;
         }
-
         if (e.getView().getTitle().equals(ChatUtils.fix(config.getString("sklep-gui.gui-name")))) {
             e.setCancelled(true);
 
             if (clickedItem.getItemMeta().getDisplayName().equalsIgnoreCase(ChatUtils.fix(config.getString("sklep-gui.item-1.nazwa")))) {
                 try {
                     if (database.getPlayerMoney(stringedUUID) > config.getInt("sklep-gui.item-1.cena")) {
-                        Bukkit.broadcastMessage(ChatUtils.fix("&cDziala! Gracz ma wystarczajaco pieniedzy"));
+                        try {
+                            Statystyki statystyki = database.getPlayerStatystyki(player);
+                            database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-1.cena"), player);
+                            player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-1.nazwa")));
+                        } catch (SQLException exception) {
+                            exception.printStackTrace();
+                        }
+                    } else {
+                        player.sendMessage(ChatUtils.fix("&cNie stac cie na ten przedmiot!"));
+                    }
+                    if (database.getPlayerMoney(stringedUUID) > config.getInt("sklep-gui.item-2.cena")) {
+                        try {
+                            Statystyki statystyki = database.getPlayerStatystyki(player);
+                            database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-2.cena"), player);
+                            player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-2.nazwa")));
+                        } catch (SQLException exception) {
+                            exception.printStackTrace();
+                        }
+                    } else {
+                        player.sendMessage(ChatUtils.fix("&cNie stac cie na ten przedmiot!"));
+                    }
+                    if (database.getPlayerMoney(stringedUUID) > config.getInt("sklep-gui.item-3.cena")) {
+                        try {
+                            Statystyki statystyki = database.getPlayerStatystyki(player);
+                            database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-3.cena"), player);
+                            player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-3.nazwa")));
+                        } catch (SQLException exception) {
+                            exception.printStackTrace();
+                        }
+                    } else {
+                        player.sendMessage(ChatUtils.fix("&cNie stac cie na ten przedmiot!"));
+                    }
+                    if (database.getPlayerMoney(stringedUUID) > config.getInt("sklep-gui.item-4.cena")) {
+                        try {
+                            Statystyki statystyki = database.getPlayerStatystyki(player);
+                            database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-4.cena"), player);
+                            player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-4.nazwa")));
+                        } catch (SQLException exception) {
+                            exception.printStackTrace();
+                        }
+                    } else {
+                        player.sendMessage(ChatUtils.fix("&cNie stac cie na ten przedmiot!"));
+                    }
+                    if (database.getPlayerMoney(stringedUUID) > config.getInt("sklep-gui.item-5.cena")) {
+                        try {
+                            Statystyki statystyki = database.getPlayerStatystyki(player);
+                            database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-5.cena"), player);
+                            player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-5.nazwa")));
+                        } catch (SQLException exception) {
+                            exception.printStackTrace();
+                        }
+                    } else {
+                        player.sendMessage(ChatUtils.fix("&cNie stac cie na ten przedmiot!"));
+                    }
+                    if (database.getPlayerMoney(stringedUUID) > config.getInt("sklep-gui.item-6.cena")) {
+                        try {
+                            Statystyki statystyki = database.getPlayerStatystyki(player);
+                            database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-6.cena"), player);
+                            player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-6.nazwa")));
+                        } catch (SQLException exception) {
+                            exception.printStackTrace();
+                        }
                     } else {
                         player.sendMessage(ChatUtils.fix("&cNie stac cie na ten przedmiot!"));
                     }

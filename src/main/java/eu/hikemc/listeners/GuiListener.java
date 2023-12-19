@@ -46,6 +46,9 @@ public class GuiListener implements Listener {
                             Statystyki statystyki = database.getPlayerStatystyki(player);
                             database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-1.cena"), player);
                             player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-1.nazwa")));
+                            if(config.getBoolean("sklep-gui.item-1.broadcast-message.enable")) {
+                                Bukkit.broadcastMessage(ChatUtils.replace("sklep-gui.item-1.broadcast-message.message", player.getName(), config.getString("sklep-gui.item-1.nazwa")));
+                            }
                         } catch (SQLException exception) {
                             exception.printStackTrace();
                         }
@@ -57,6 +60,9 @@ public class GuiListener implements Listener {
                             Statystyki statystyki = database.getPlayerStatystyki(player);
                             database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-2.cena"), player);
                             player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-2.nazwa")));
+                            if(config.getBoolean("sklep-gui.item-2.broadcast-message.enable")) {
+                                Bukkit.broadcastMessage(ChatUtils.replace("sklep-gui.item-2.broadcast-message.message", player.getName(), config.getString("sklep-gui.item-2.nazwa")));
+                            }
                         } catch (SQLException exception) {
                             exception.printStackTrace();
                         }
@@ -68,6 +74,10 @@ public class GuiListener implements Listener {
                             Statystyki statystyki = database.getPlayerStatystyki(player);
                             database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-3.cena"), player);
                             player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-3.nazwa")));
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), config.getString(""));
+                            if(config.getBoolean("sklep-gui.item-3.broadcast-message.enable")) {
+                                Bukkit.broadcastMessage(ChatUtils.replace("sklep-gui.item-3.broadcast-message.message", player.getName(), config.getString("sklep-gui.item-3.nazwa")));
+                            }
                         } catch (SQLException exception) {
                             exception.printStackTrace();
                         }
@@ -79,6 +89,9 @@ public class GuiListener implements Listener {
                             Statystyki statystyki = database.getPlayerStatystyki(player);
                             database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-4.cena"), player);
                             player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-4.nazwa")));
+                            if(config.getBoolean("sklep-gui.item-4.broadcast-message.enable")) {
+                                Bukkit.broadcastMessage(ChatUtils.replace("sklep-gui.item-4.broadcast-message.message", player.getName(), config.getString("sklep-gui.item-4.nazwa")));
+                            }
                         } catch (SQLException exception) {
                             exception.printStackTrace();
                         }
@@ -90,6 +103,9 @@ public class GuiListener implements Listener {
                             Statystyki statystyki = database.getPlayerStatystyki(player);
                             database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-5.cena"), player);
                             player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-5.nazwa")));
+                            if(config.getBoolean("sklep-gui.item-5.broadcast-message.enable")) {
+                                Bukkit.broadcastMessage(ChatUtils.replace("sklep-gui.item-5.broadcast-message.message", player.getName(), config.getString("sklep-gui.item-5.nazwa")));
+                            }
                         } catch (SQLException exception) {
                             exception.printStackTrace();
                         }
@@ -101,6 +117,9 @@ public class GuiListener implements Listener {
                             Statystyki statystyki = database.getPlayerStatystyki(player);
                             database.removePlayerMoney(statystyki, config.getInt("sklep-gui.item-6.cena"), player);
                             player.sendMessage("Pomyslnie kupiles przedmiot " + ChatUtils.fix(config.getString("sklep-gui.item-6.nazwa")));
+                            if(config.getBoolean("sklep-gui.item-6.broadcast-message.enable")) {
+                                Bukkit.broadcastMessage(ChatUtils.replace("sklep-gui.item-6.broadcast-message.message", player.getName(), config.getString("sklep-gui.item-6.nazwa")));
+                            }
                         } catch (SQLException exception) {
                             exception.printStackTrace();
                         }

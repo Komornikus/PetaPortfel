@@ -28,7 +28,7 @@ sklep-gui:
   # Title gui
   gui-name: "&cwPLN sklep"
   # Od 9 do 54
-  gui-size: 36
+  gui-size: 45
   # Itemy w gui
 
 
@@ -42,53 +42,82 @@ sklep-gui:
 
   # Cena - Cena itemu za wPLN (Wirtualne pieniadze) (Cyfra, np. 2.0)
   # Slot - Slot w gui (Cyfra)
-  item-1:
-    nazwa: ""
-    material:
-    opis:
-      linia1:
-      linia2:
-    cena:
-    slot:
-  item-2:
-    nazwa: ""
-    material:
-    opis:
-      linia1:
-      linia2:
-    cena:
-    slot:
-  item-3:
-    nazwa: ""
-    material:
-    opis:
-      linia1:
-      linia2:
-    cena:
-    slot:
-  item-4:
-    nazwa: ""
-    material:
-    opis:
-      linia1:
-      linia2:
-    cena:
-    slot:
-  item-5:
-    nazwa: ""
-    material:
-    opis:
-      linia1:
-      linia2:
-    cena:
-    slot:
-  item-6:
-    nazwa: ""
-    material:
-    opis:
-      linia1:
-      linia2:
-    cena:
-    slot:
+  # Komenda - Komenda ktora sie wykona gdy gracz kupi dany przedmiot
+  # Broadcast message - Wiadomosc ktora zostanie wyslana po kupieniu itemu do wszystkich graczy | Mozna ja wlaczyc i wylaczyc
 
+
+  # Uzyj {PLAYER} aby uzyskac nickname gracza ktory kupil item
+  # Uzyj {ITEM-NAME} aby uzyskac nazwe itemu
+  item-1:
+    nazwa: "&a&lItem 1"
+    material: PAPER
+    opis:
+      linia1: "Pierwsza linia lore itemu"
+      linia2: "Druga linia lore itemu"
+    cena: 10
+    slot: 11
+    komenda:
+    broadcast-message:
+      enable: true
+      message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
+  item-2:
+    nazwa: "&a&lItem 2"
+    material: PAPER
+    opis:
+      linia1: "Pierwsza linia lore itemu"
+      linia2: "Druga linia lore itemu"
+    cena: 10
+    slot: 13
+    komenda:
+    broadcast-message:
+      enable: true
+      message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
+  item-3:
+    nazwa: "&a&lItem 3"
+    material: PAPER
+    opis:
+      linia1: "Pierwsza linia lore itemu"
+      linia2: "Druga linia lore itemu"
+    cena: 10
+    slot: 15
+    komenda:
+    broadcast-message:
+      enable: true
+      message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
+  item-4:
+    nazwa: "&a&lItem 4"
+    material: PAPER
+    opis:
+      linia1: "Pierwsza linia lore itemu"
+      linia2: "Druga linia lore itemu"
+    cena: 10
+    slot: 29
+    komenda:
+    broadcast-message:
+      enable: true
+      message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
+  item-5:
+    nazwa: "&a&lItem 5"
+    material: PAPER
+    opis:
+      linia1: "Pierwsza linia lore itemu"
+      linia2: "Druga linia lore itemu"
+    cena: 10
+    slot: 31
+    komenda:
+    broadcast-message:
+      enable: true
+      message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
+  item-6:
+    nazwa: "&a&lItem 6"
+    material: PAPER
+    opis:
+      linia1: "Pierwsza linia lore itemu"
+      linia2: "Druga linia lore itemu"
+    cena: 10
+    slot: 33
+    komenda:
+    broadcast-message:
+      enable: true
+      message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
 

@@ -73,9 +73,7 @@ public class aportfel implements CommandExecutor {
             player.sendMessage(ChatColor.RED + "Kwota musi być liczbą zmiennoprzecinkową (double), np. 0.0, 10.2");
             return true;
         }
-
         double kwota = Double.parseDouble(args[2]);
-
         try {
             Statystyki statystyki = database.getPlayerStatystyki(player);
             if (args[1].equalsIgnoreCase("add")) {
@@ -122,7 +120,6 @@ public class aportfel implements CommandExecutor {
             sender.sendMessage(ChatUtils.fix("&cWystąpił błąd podczas przetwarzania komendy."));
             exception.printStackTrace();
         }
-
         return true;
     }
 }

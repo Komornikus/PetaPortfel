@@ -21,7 +21,6 @@ public class MainListeners implements Listener {
         Statystyki Statystyki = database.checkPlayerStats(player.getUniqueId().toString());
 
         if(Statystyki == null) {
-            // Utwórz nowy obiekt Statystyki, jeśli nie istnieje
             Statystyki = new Statystyki(player.getUniqueId().toString(), 0.0);
             database.dodajDoBazy(Statystyki);
             database.updatujBaze(Statystyki);

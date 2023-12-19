@@ -82,7 +82,7 @@ public class GuiListener implements Listener {
             player.closeInventory();
         } else {
             player.sendMessage(ChatUtils.fix("&cNie stac cie na ten przedmiot!"));
-
+        }
 
 
     }

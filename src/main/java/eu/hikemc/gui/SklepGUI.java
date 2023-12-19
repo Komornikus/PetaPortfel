@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SklepGUI{
+public class SklepGUI {
 
     static FileConfiguration config = Main.getInstance().getConfig();
 
@@ -29,7 +29,7 @@ public class SklepGUI{
         List<String> lore1 = new ArrayList<>();
         lore1.add(ChatUtils.fix(config.getString("sklep-gui.item-1.opis.linia1")));
         lore1.add(ChatUtils.fix(config.getString("sklep-gui.item-1.opis.linia1")));
-        lore1.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-1.cena")));
+        lore1.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-1.cena") + " " + config.getString("waluta")));
         item1Meta.setLore(lore1);
         item1.setItemMeta(item1Meta);
         @SuppressWarnings({"all"})
@@ -39,7 +39,7 @@ public class SklepGUI{
         List<String> lore2 = new ArrayList<>();
         lore2.add(ChatUtils.fix(config.getString("sklep-gui.item-2.opis.linia1")));
         lore2.add(ChatUtils.fix(config.getString("sklep-gui.item-2.opis.linia1")));
-        lore2.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-2.cena")));
+        lore2.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-2.cena") + " " + config.getString("waluta")));
         item2Meta.setLore(lore2);
         item2.setItemMeta(item2Meta);
         @SuppressWarnings({"all"})
@@ -49,7 +49,7 @@ public class SklepGUI{
         List<String> lore3 = new ArrayList<>();
         lore3.add(ChatUtils.fix(config.getString("sklep-gui.item-3.opis.linia1")));
         lore3.add(ChatUtils.fix(config.getString("sklep-gui.item-3.opis.linia1")));
-        lore3.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-3.cena")));
+        lore3.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-3.cena") + " " + config.getString("waluta")));
         item3Meta.setLore(lore3);
         item3.setItemMeta(item3Meta);
         @SuppressWarnings({"all"})
@@ -59,7 +59,7 @@ public class SklepGUI{
         List<String> lore4 = new ArrayList<>();
         lore4.add(ChatUtils.fix(config.getString("sklep-gui.item-4.opis.linia1")));
         lore4.add(ChatUtils.fix(config.getString("sklep-gui.item-4.opis.linia1")));
-        lore4.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-4.cena")));
+        lore4.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-4.cena") + " " + config.getString("waluta")));
         item4Meta.setLore(lore4);
         item4.setItemMeta(item4Meta);
         @SuppressWarnings({"all"})
@@ -69,7 +69,7 @@ public class SklepGUI{
         List<String> lore5 = new ArrayList<>();
         lore5.add(ChatUtils.fix(config.getString("sklep-gui.item-5.opis.linia1")));
         lore5.add(ChatUtils.fix(config.getString("sklep-gui.item-5.opis.linia1")));
-        lore5.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-5.cena")));
+        lore5.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-5.cena") + " " + config.getString("waluta")));
         item5Meta.setLore(lore5);
         item5.setItemMeta(item5Meta);
         @SuppressWarnings({"all"})
@@ -79,7 +79,7 @@ public class SklepGUI{
         List<String> lore6 = new ArrayList<>();
         lore6.add(ChatUtils.fix(config.getString("sklep-gui.item-6.opis.linia1")));
         lore6.add(ChatUtils.fix(config.getString("sklep-gui.item-6.opis.linia1")));
-        lore6.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-6.cena")));
+        lore6.add(ChatUtils.fix("&aCena: &2" + config.getInt("sklep-gui.item-6.cena") + " " + config.getString("waluta")));
         item6Meta.setLore(lore6);
         item6.setItemMeta(item6Meta);
 

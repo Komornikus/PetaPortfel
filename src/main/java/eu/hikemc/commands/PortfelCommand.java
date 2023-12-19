@@ -1,7 +1,7 @@
 package eu.hikemc.commands;
 
-import eu.hikemc.data.Database;
 import eu.hikemc.Main;
+import eu.hikemc.data.Database;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -15,7 +15,7 @@ import java.util.UUID;
 
 public class PortfelCommand implements CommandExecutor {
 
-    private Database database;
+    private final Database database;
 
     public PortfelCommand(Database database) {
         this.database = database;

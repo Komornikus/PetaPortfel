@@ -1,3 +1,7 @@
+prefix: "PetaWallet"
+waluta: " wPLN"
+
+
 messages:
   noPermission: "&cNie Posiadasz uprawnień do tej komendy (hikemc.wallet.admin)"
   adminAddWallet: "&8» &aPomyślnie dodałeś &2{kwota} zł &adla &2{target}" # Użyj: {admin} - nick administratora, {kwota} - jaka kwota, {target} - nick osoby któej admin ustawia
@@ -56,7 +60,7 @@ sklep-gui:
       linia2: "Druga linia lore itemu"
     cena: 10
     slot: 11
-    komenda:
+    komenda: gms {PLAYER}
     broadcast-message:
       enable: true
       message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
@@ -68,7 +72,7 @@ sklep-gui:
       linia2: "Druga linia lore itemu"
     cena: 10
     slot: 13
-    komenda:
+    komenda: gms {PLAYER}
     broadcast-message:
       enable: true
       message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
@@ -80,7 +84,7 @@ sklep-gui:
       linia2: "Druga linia lore itemu"
     cena: 10
     slot: 15
-    komenda:
+    komenda: gms {PLAYER}
     broadcast-message:
       enable: true
       message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
@@ -92,7 +96,7 @@ sklep-gui:
       linia2: "Druga linia lore itemu"
     cena: 10
     slot: 29
-    komenda:
+    komenda: gms {PLAYER}
     broadcast-message:
       enable: true
       message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
@@ -104,7 +108,7 @@ sklep-gui:
       linia2: "Druga linia lore itemu"
     cena: 10
     slot: 31
-    komenda:
+    komenda: gms {PLAYER}
     broadcast-message:
       enable: true
       message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"
@@ -116,7 +120,7 @@ sklep-gui:
       linia2: "Druga linia lore itemu"
     cena: 10
     slot: 33
-    komenda:
+    komenda: gms {PLAYER}
     broadcast-message:
       enable: true
       message: "&aGracz {PLAYER} zakupil {ITEM-NAME}!"

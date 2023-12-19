@@ -13,7 +13,7 @@ public class tabCompleterA implements TabCompleter {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
-        if (args.length == 2){
+        if (args.length == 2) {
             List<String> arguments = new ArrayList<>();
             arguments.add("set");
             arguments.add("remove");
@@ -21,13 +21,12 @@ public class tabCompleterA implements TabCompleter {
 
             return arguments;
         }
-        if (args.length == 3){
+        if (args.length == 3) {
             List<String> arguments = new ArrayList<>();
             arguments.add("<kwota>");
 
             return arguments;
         }
-
 
 
         return null;

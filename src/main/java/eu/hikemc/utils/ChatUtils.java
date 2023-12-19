@@ -4,10 +4,7 @@ import eu.hikemc.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import static org.bukkit.loot.LootTables.PLAYER;
-
 public class ChatUtils {
-
 
 
     public static String fix(String message) {

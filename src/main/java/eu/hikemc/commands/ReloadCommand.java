@@ -1,7 +1,7 @@
 package eu.hikemc.commands;
 
-import eu.hikemc.utils.ChatUtils;
 import eu.hikemc.Main;
+import eu.hikemc.utils.ChatUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,17 +12,14 @@ import java.io.IOException;
 
 public class ReloadCommand implements CommandExecutor {
 
-    private Main plugin;
-
-    public ReloadCommand(Main plugin) {
-        this.plugin = plugin;
-    }
-
     FileConfiguration config = Main.getInstance().getConfig();
     String permisja = config.getString("permissions.reloadPermission");
     String permisjamessage = config.getString("messages.noPermissionReload");
     String przeladowano = config.getString("messages.reloadSuccess");
-
+    private final Main plugin;
+    public ReloadCommand(Main plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -38,12 +35,12 @@ public class ReloadCommand implements CommandExecutor {
         }
 
 
-        try{
+        try {
 
             config.save("config.yml");
             config.load("config.yml");
             plugin.reloadConfig();
-            sender.sendMessage("&2PetaPortfel: " + ChatUtils.fix(przeladowano));
+            sender.sendMessage(config.getString("") + ChatUtils.fix(przeladowano));
         } catch (IOException exception) {
             exception.printStackTrace();
         } catch (InvalidConfigurationException e) {

@@ -1,9 +1,9 @@
 package eu.hikemc;
 
-import eu.hikemc.commands.wPLNSklep;
 import eu.hikemc.commands.PortfelCommand;
 import eu.hikemc.commands.ReloadCommand;
 import eu.hikemc.commands.aportfel;
+import eu.hikemc.commands.wPLNSklep;
 import eu.hikemc.data.Database;
 import eu.hikemc.data.Statystyki;
 import eu.hikemc.listeners.GuiListener;
@@ -16,7 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
-import java.sql.*;
+import java.sql.SQLException;
 
 public final class Main extends JavaPlugin {
 
@@ -25,6 +25,10 @@ public final class Main extends JavaPlugin {
     private Database database;
 
     private Statystyki statystyki;
+
+    public static Main getInstance() {
+        return instance;
+    }
 
     @Override
     public void onEnable() {
@@ -37,22 +41,18 @@ public final class Main extends JavaPlugin {
         }
 
         instance = this;
-
-        // Connecting to mysql
         this.database = new Database();
         try {
             this.database.connect();
         } catch (SQLException e) {
             System.out.println("Błąd z połączeniem z bazą danych");
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             System.out.println("Connected to database!");
         }
 
         this.database.initializeDatabase();
 
-        // Registering
         getServer().getPluginManager().registerEvents(new MainListeners(database), this);
         getServer().getPluginManager().registerEvents(new GuiListener(this, database), this);
         getCommand("portfel").setExecutor(new PortfelCommand(database));
@@ -60,10 +60,8 @@ public final class Main extends JavaPlugin {
         getCommand("petaportfel-reload").setExecutor(new ReloadCommand(this));
         getCommand("wplnsklep").setExecutor(new wPLNSklep());
 
-        // Tab completers
         getCommand("aportfel").setTabCompleter(new tabCompleterA());
 
-        // Registering placeholders
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new WalletPlaceholder(this).register();
         }
@@ -71,18 +69,13 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Turning off message
         System.out.println("---------------------------");
-        System.out.println("");
+        System.out.println();
         System.out.println("Plugin HikeWallet został pomyślnie wyłączony");
         System.out.println("Autor: xGabriell, podateK_");
         System.out.println("Wersja pluginu: 1.0");
-        System.out.println("");
+        System.out.println();
         System.out.println("---------------------------");
-    }
-
-    public static Main getInstance() {
-        return instance;
     }
 
     @Override

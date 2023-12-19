@@ -4,7 +4,6 @@ import eu.hikemc.Main;
 import eu.hikemc.data.Database;
 import eu.hikemc.data.Statystyki;
 import eu.hikemc.utils.ChatUtils;
-import eu.hikemc.listeners.MainListeners;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -26,10 +25,6 @@ public class aportfel implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "Komenda dostępna tylko dla graczy!");
-            return true;
-        }
 
         Player player = (Player) sender;
         FileConfiguration config = Main.getInstance().getConfig();

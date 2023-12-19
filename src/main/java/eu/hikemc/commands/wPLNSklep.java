@@ -11,8 +11,8 @@ public class wPLNSklep implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
 
-        if(!(sender instanceof Player)) {
-           sender.sendMessage("Ta komende moga uzyc tylko gracze!");
+        if (!(sender instanceof Player)) {
+            sender.sendMessage("Ta komende moga uzyc tylko gracze!");
             return true;
         }
         Player player = (Player) sender;

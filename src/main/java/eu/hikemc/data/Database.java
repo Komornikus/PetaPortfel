@@ -1,11 +1,11 @@
 package eu.hikemc.data;
 
-import java.sql.*;
-
 import eu.hikemc.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+
+import java.sql.*;
 
 public class Database {
     public Connection connection;
@@ -29,12 +29,12 @@ public class Database {
             Connection connection = getConnection();
             Statement statement = connection.createStatement();
 
-            StringBuilder createTableQuery = new StringBuilder("CREATE TABLE IF NOT EXISTS statystyki (")
-                    .append("uuid VARCHAR(36) NOT NULL,")
-                    .append("money DOUBLE NOT NULL")
-                    .append(")");
+            String createTableQuery = "CREATE TABLE IF NOT EXISTS statystyki (" +
+                    "uuid VARCHAR(36) NOT NULL," +
+                    "money DOUBLE NOT NULL" +
+                    ")";
 
-            statement.executeUpdate(createTableQuery.toString());
+            statement.executeUpdate(createTableQuery);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

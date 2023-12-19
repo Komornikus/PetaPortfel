@@ -20,7 +20,7 @@ public class MainListeners implements Listener {
     public Statystyki getPlayerStatystyki(Player player) throws SQLException {
         Statystyki Statystyki = database.checkPlayerStats(player.getUniqueId().toString());
 
-        if(Statystyki == null) {
+        if (Statystyki == null) {
             Statystyki = new Statystyki(player.getUniqueId().toString(), 0.0);
             database.dodajDoBazy(Statystyki);
             database.updatujBaze(Statystyki);
